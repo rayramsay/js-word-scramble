@@ -10,25 +10,44 @@
         var WORDS     = ["booger", "apple", "hackbright", "mango"];
         var SCRAMBLED = ["oogreb", "papel", "backrhight", "goman"];
 
-        var playing = true;
+        // a function to choose a random index within the range of a list
+        function randomIndex(list) {
+            var index = Math.trunc(Math.random() * list.length);
+            return index;
+           }
 
-        while (playing) {
+        var index = randomIndex(WORDS);
 
-            // Grab a random word from the WORDS array
+        // Grab a random word from the WORDS array
+        var secret_word = WORDS[index];
+        console.log(secret_word);
 
-            // Grab the corresponding scrambled word from the SCRAMBLED array
+        // Grab the corresponding scrambled word from the SCRAMBLED array
+        var scrambled_word = SCRAMBLED[index];
+        console.log(scrambled_word);
 
-            // prompt the user to guess the original word when given the scrambled word
+        // var playing = true;
 
-            // If the user guesses wrong, tell them they were wrong and the right word.
+        // while (playing) {
+
+
+        // prompt the user to guess the original word when given the scrambled word
+        var guess = window.prompt("Unscramble " + scrambled_word);
+
+        // If the user guesses wrong, tell them they were wrong and the right word.
+        if (guess === secret_word) {
+            alert('Congratulations on guessing the correct word!');
+        } else {
+            alert("You guessed " + guess + ". The correct word was: " + secret_word);
+        }
             
             // If the user guesses the correct word, congratulate them.
 
-            playing = confirm("Press OK To keep playing or Cancel to quit");
+            // playing = confirm("Press OK To keep playing or Cancel to quit");
 
             // What does confirm() return?
             // What does setting the playing variable do?
-        }
+        // }
 
         alert("goodbye!");
     </script>
