@@ -13,44 +13,55 @@
         // a function to choose a random index within the range of a list
         function randomIndex(list) {
             var index = Math.trunc(Math.random() * list.length);
+            // parseInt(float) removes everything after the decimal point
+            // JS has no int type so it's still technically a float
+            // parseInt is built in, so you don't have to use the math library
+            // var index = parseInt(Math.random() * list.length); would also work
             return index;
            }
 
-        var index = randomIndex(WORDS);
+        var playing = true;
 
-        // Grab a random word from the WORDS array
-        var secret_word = WORDS[index];
-        console.log(secret_word);
+        while (playing) {
+            var index = randomIndex(WORDS);
 
-        // Grab the corresponding scrambled word from the SCRAMBLED array
-        var scrambled_word = SCRAMBLED[index];
-        console.log(scrambled_word);
+            // Grab a random word from the WORDS array
+            var secret_word = WORDS[index];
+            console.log(secret_word);
 
-        // var playing = true;
+            // Grab the corresponding scrambled word from the SCRAMBLED array
+            var scrambled_word = SCRAMBLED[index];
+            console.log(scrambled_word);
 
-        // while (playing) {
+            // prompt the user to guess the original word when given the scrambled word
+            var guess = window.prompt("Unscramble: " + scrambled_word);
 
 
-        // prompt the user to guess the original word when given the scrambled word
-        var guess = window.prompt("Unscramble " + scrambled_word);
-
-        // If the user guesses wrong, tell them they were wrong and the right word.
-        if (guess === secret_word) {
-            alert('Congratulations on guessing the correct word!');
-        } else {
-            alert("You guessed " + guess + ". The correct word was: " + secret_word);
-        }
-            
             // If the user guesses the correct word, congratulate them.
+            if (guess === secret_word) {
+                alert('Congratulations on guessing the correct word!');
 
-            // playing = confirm("Press OK To keep playing or Cancel to quit");
+            // If the user guesses wrong, tell them they were wrong and the right word.
+            } else {
+                alert("You guessed " + guess + ". The correct word was: " + secret_word);
+            }
 
-            // What does confirm() return?
-            // What does setting the playing variable do?
-        // }
+            playing = confirm("Press OK To keep playing or Cancel to quit");
+        }
 
         alert("goodbye!");
+
+        // What does confirm() return?
+        // Displays an alert message asking the user to press either OK or Cancel,
+        // and returns a boolean value.
+
+        // What does setting the playing variable do?
+        // Initiates and deactivates the while loop. Initially set to true, user plays, then, when user ends the game, the value becomes false, and the while
+        // loop exits.
+
     </script>
     
 </body>
 </html>
+
+            
