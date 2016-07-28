@@ -14,8 +14,8 @@
         function randomIndex(list) {
             var index = Math.trunc(Math.random() * list.length);
             // parseInt(float) removes everything after the decimal point
-            // JS has no int type so it's still technically a float
-            // parseInt is built in, so you don't have to use the math library
+            // JS has no int type so it's technically still a float
+            // parseInt is built in, so you don't have to use the Math library
             // var index = parseInt(Math.random() * list.length); would also work
             return index;
            }
@@ -35,6 +35,7 @@
 
             // prompt the user to guess the original word when given the scrambled word
             var guess = window.prompt("Unscramble: " + scrambled_word);
+            guess = guess.trim().toLowerCase();
 
 
             // If the user guesses the correct word, congratulate them.
